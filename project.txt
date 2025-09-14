@@ -1,3 +1,57 @@
 1. pip install streamlit
 2. streamlit run app.py
-3. 
+3. now to tell github to perform ci actions creaate .github floder and subfolder workflows
+4. inside that create any file yaml
+
+meaning
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+do this when push or pull resquest is coming on main branches
+
+test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest streamlit
+
+    - name: Run tests
+      run: |
+        pytest _test.py
+
+means use ubuntu-latest (all happens on server)
+and do steps
+
+
+
+usually this is given in company
+
+
+actions/checkout@v2 keep this as it is
+
+
+jobs means--what to do
+
+
+
+
+how to create this file _test.py
+since we added we are creating else not needed
+
+
+now git add push
