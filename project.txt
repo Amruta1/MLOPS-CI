@@ -1,3 +1,10 @@
+CI is the software developemnt process where developers regularly merge their code changes into shared repository
+-needed for early detection of errors
+-automation of testing
+
+
+
+
 1. pip install streamlit
 2. streamlit run app.py
 3. now to tell github to perform ci actions creaate .github floder and subfolder workflows
@@ -31,8 +38,7 @@ test:
         pip install pytest streamlit
 
     - name: Run tests
-      run: |
-        pytest _test.py
+      run: | basically this runs test file
 
 means use ubuntu-latest (all happens on server)
 and do steps
@@ -55,3 +61,45 @@ since we added we are creating else not needed
 
 
 now git add push
+
+now in gitrepository goto actions
+
+How CI works
+
+Version Control System (VCS): Developers commit their code to a shared repository (e.g., GitHub, GitLab).
+
+CI Server: A CI server (e.g., Jenkins, GitHub Actions) monitors the repository. When changes are detected, the CI server automatically triggers a series of tasks.
+
+Build Automation: The code is built, which includes compiling the code and generating artifacts.
+
+Automated Testing:
+
+Unit Tests: These tests check individual components or functions to ensure they work as expected.
+
+Integration Tests: These tests verify that different parts of the application work together as intended.
+
+End-to-End Tests: These tests simulate real user scenarios to ensure the system as a whole behaves correctly.
+
+Feedback: The results of the build and tests are reported back to the developers, usually in the form of success or failure.
+
+
+
+
+
+CI WORKFLOW WITH GITHUB ACTIONS
+
+Triggering CI: CI can be triggered by various events, such as code push, pull request, or even on a schedule.
+
+Configuration Files: CI is configured using YAML files (e.g., .github/workflows/ci.yaml) that define the tasks to be performed.
+
+Steps in CI Pipeline:
+
+Checkout Code: The first step is to checkout the code from the repository.
+
+Set Up Environment: Install dependencies, set up the runtime environment, etc.
+
+Run Tests: Execute the tests defined for the project.
+
+Build Artifacts: If the tests pass, build the necessary artifacts for deployment.
+
+Deploy: Optionally, deploy the code to a staging or production environment.
